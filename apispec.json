@@ -1,0 +1,93 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Category RESTful API",
+    "description": "API Spec for Category RESTful API",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://localhost:8010/api"
+    }
+  ],
+  "paths": {
+    "/categories" : {
+      "get" : {
+        "tags": ["Category API"],
+        "summary": "List All Categories",
+        "responses" : {
+          "200": {
+            "description": "Success get All Categories",
+            "content": {
+              "application/json" : {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code" : {
+                      "type": "number"
+                    },
+                    "status" : {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id" : {
+                            "type": "number"
+                          },
+                          "name" : {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["Category API"],
+        "summary": "Create New Category",
+        "requestBody": {
+          "content": {
+            "application/json":{
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success Create Category",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id" : {
+                      "type": "number"
+                    },
+                    "name" : {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
